@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This is a simple mud game using Typescript.",
   "main": "src/main.ts",
-  "scripts":{
+  "scripts": {
     "start": "ts-node src/main.ts",
     "build": "tsc"
   },
@@ -11,7 +11,11 @@
   "author": "khjkr <hyunjun5216@naver.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/prompts": "^2.0.9",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "prompts": "^2.4.0"
   }
 }

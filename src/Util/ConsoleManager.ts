@@ -3,20 +3,41 @@ import _ from 'prompts';
 
 class ConsoleManager {
   static printLogo() {
-    console.log('LuckyChain')
+    console.log(`
+    ██╗░░░░░██╗░░░██╗░█████╗░██╗░░██╗██╗░░░██╗░█████╗░██╗░░██╗░█████╗░██╗███╗░░██╗
+    ██║░░░░░██║░░░██║██╔══██╗██║░██╔╝╚██╗░██╔╝██╔══██╗██║░░██║██╔══██╗██║████╗░██║
+    ██║░░░░░██║░░░██║██║░░╚═╝█████═╝░░╚████╔╝░██║░░╚═╝███████║███████║██║██╔██╗██║
+    ██║░░░░░██║░░░██║██║░░██╗██╔═██╗░░░╚██╔╝░░██║░░██╗██╔══██║██╔══██║██║██║╚████║
+    ███████╗╚██████╔╝╚█████╔╝██║░╚██╗░░░██║░░░╚█████╔╝██║░░██║██║░░██║██║██║░╚███║
+    ╚══════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝╚═╝░░╚══╝`)
   }
 
   static newData() {
-    (async () => {
-      const response = await prompts({
+    const questions: any = [
+      {
+        type: 'text',
+        name: 'username',
+        message: '사용하실 닉네임을 적어주세요.'
+      },
+      {
         type: 'number',
-        name: 'value',
-        'message': '사용자의 나이를 입력해주세요.',
-        validate: value => value < 12 ? `12세 이상부터 이용 가능합니다.` : true
-      })
-    
-      console.log(response)
-    })(); 
+        name: 'age',
+        message: '사용자의 나이를 적어주세요.'
+      },
+      {
+        type: 'text',
+        name: 'about',
+        message: '한줄 소개말을 적어주세요.'
+      }
+    ];
+     
+    (async () => {
+      const response = await prompts(questions)
+      console.clear()
+      console.log(response.username)
+      console.log(response.age)
+      console.log(response.about)
+    })()
   }
 }
 
